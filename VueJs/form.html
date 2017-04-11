@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+</head>
+<body>
+
+<div id="app">
+	<form action="">
+		<span class="error" v-show="!message">
+			You must enter some text
+		</span>
+		<br>
+		<textarea v-model="message"></textarea>
+		<br>
+
+		<button type="submit" v-if="message">
+			Send
+		</button>
+	</form>
+
+	<pre>{{ $data | json }}</pre>
+
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			message: ''
+		}
+	});
+</script>
+</body>
+</html>
