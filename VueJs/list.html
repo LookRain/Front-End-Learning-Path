@@ -7,8 +7,13 @@
 <body>
 	
 <div id="root">
-	
+	<ul>
+		<li v-for="name in names" v-text="name"></li>
+	</ul>
 
+	<input type="text">
+	<button id="add">Add Name</button>
+	
 </div>
 
 <script src="https://unpkg.com/vue"></script>
@@ -16,7 +21,7 @@
 	new Vue({
 		el: '#root',
 		data: {
-
+			names: ['Joe', 'John', 'Abe', 'Ben']
 		}
 	});
 </script>
