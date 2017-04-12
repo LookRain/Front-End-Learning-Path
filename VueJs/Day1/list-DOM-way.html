@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<div id="root">
+		<ul>
+			<li v-for="name in names" v-text="name"></li>
+		</ul>
+		<p id="test">123</p>
+		<button id="tbtn">test</button>
+		<input id="input" type="text">
+		<button id="add">Add Name</button>
+	</div>
+	<script src="https://unpkg.com/vue"></script>
+	<script>
+		var app = new Vue({
+			el: '#root',
+			data: {
+				names: ['Joe', 'John', 'Abe', 'Ben']
+			},
+
+			mounted() {
+				document.querySelector('#add').addEventListener('click', () => {
+					let name = document.querySelector('#input');
+
+					app.names.push(name.value);
+
+					name.value = '';
+				});
+			}
+
+		});
+
+		document.querySelector('#tbtn').addEventListener('click', () => {
+					document.querySelector('#test').innerHTML = 'hahaha';
+		});
+			
+		
+	</script>
+</body>
+
+</html>
