@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.is-loading { background: red; }
+	</style>
+</head>
+<body>
+	
+<div id="root">
+	
+	<button :class="{ 'is-loading': isLoading }" :title="title" @click="toggleLoading">Hover over me</button>
+
+	<br>
+
+	<button :disabled="isDisabled" @click="disable">A Cute Button</button>
+
+	
+
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+	new Vue({
+		el: '#root',
+		data: {
+			title: 'set in javascript',
+			isLoading: false,
+			isDisabled: false
+		},
+		methods: {
+			toggleLoading() {
+				this.isLoading = true;
+			},
+
+			disable() {
+				this.isDisabled = true;
+			}
+		}
+	});
+</script>
+</body>
+</html>

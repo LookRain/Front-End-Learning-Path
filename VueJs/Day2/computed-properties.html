@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<div id="root">
+	<h1>
+		
+		{{ reversedmessage }}
+	</h1>
+	<h2>All Tasks</h2>
+	<ul>
+		<li v-for="task in tasks" v-text="task.description"></li>
+	</ul>
+
+	<h2>Incomplete Tasks</h2>
+	<ul>
+		<li v-for="task in incompleteTasks" v-text="task.description"></li>
+	</ul>
+
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+	new Vue({
+		el: '#root',
+		data: {
+			message: 'hello',
+			tasks: [
+				{description: 'go to store', completed: false},
+				{description: 'go to school', completed: true},
+				{description: 'go to here', completed: false},
+				{description: 'go to there', completed: false},
+				{description: 'kill store', completed: true},
+				{description: 'open store', completed: false},
+			]
+		},
+
+		computed: {
+			reversedmessage() {
+				return this.message.split('').reverse().join('');
+			}, 
+
+			incompleteTasks() {
+				return this.tasks.filter(task => ! task.completed);
+			}
+		}
+	});
+</script>
+</body>
+</html>
