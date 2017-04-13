@@ -13,7 +13,12 @@
 <body>
 	
 <div id="root" class="container">
-	
+	<coupon @applied="onCouponApplied"></coupon>
+	<div class="columns">
+		<div class="column">
+			<div class="box" v-show="couponApplied">Coupon Successfully Applied!</div>
+		</div>
+	</div>
 
 </div>
 
