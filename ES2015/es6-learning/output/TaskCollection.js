@@ -14,19 +14,11 @@ var TaskCollection = function () {
 	}
 
 	_createClass(TaskCollection, [{
-		key: "log",
-		value: function log() {
-			this.tasks.forEach(function (task) {
-				return console.log(task);
-			});
+		key: "dump",
+		value: function dump() {
+			console.log(this.tasks);
 		}
 	}]);
 
 	return TaskCollection;
 }();
-
-var Task = function Task() {
-	_classCallCheck(this, Task);
-};
-
-new TaskCollection([new Task(), new Task(), new Task()]).log();
