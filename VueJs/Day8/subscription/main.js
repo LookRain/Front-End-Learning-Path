@@ -30,11 +30,7 @@ new Vue({
 			`,
 			props: ['plan', 'active'],
 
-			data() {
-				return {
-					localActive: this.active
-				};
-			},
+		
 
 			computed: {
                 isActive() {
@@ -48,7 +44,7 @@ new Vue({
 
 			methods: {
 				selectPlan() {
-					this.localActive = this.plan;
+					this.active = this.plan;
 				}
 			}
 		}	

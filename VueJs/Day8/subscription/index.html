@@ -29,6 +29,7 @@
 
 <body>
     <div id="root" class="container">
+    <pre>{{ $data }}</pre>
  
             <template v-for="plan in plans">
                 <plan :plan="plan" :active.sync="active"></plan>
