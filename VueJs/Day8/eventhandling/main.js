@@ -4,6 +4,7 @@ Vue.component('counter', {
             <div class="column is-half is-offset-one-quarter">
                 <div class="notification is-primary">
                     Current Number: {{counter}}
+                    Big Number: {{bigCounter}}
                 </div>
             </div>
             <div class="column is-half is-offset-one-quarter">
@@ -16,6 +17,11 @@ Vue.component('counter', {
 		return {
 			counter: 0
 		};
+	},
+	computed: {
+		bigCounter() {
+			return this.counter * 10;
+		}
 	},
 	methods: {
 		handleMe() {
@@ -30,7 +36,7 @@ Vue.component('counter', {
 			if (this.counter > 0) this.counter --;
 		}
 	}
-	
+
 
 });
 

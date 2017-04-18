@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
+    <style type="text/css">
+    body {
+        padding-top: 40px;
+    }
+    .plan-name {
+    	display: inline-block;
+    	height: 3em;
+    	width:10em;
+    }
+    .plan-price {
+    	display: inline-block;
+    	height: 3em;
+    	width:10em;
+    }
+    .plan-button {
+    	display: inline-block;
+    	height: 3em;
+    	width:10em;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="root" class="container">
+ 
+            <template v-for="plan in plans">
+                <plan :plan="plan" :active.sync="active"></plan>
+            </template>
+
+    </div>
+
+    <template id="plan-template">
+    <div>
+        <span class="plan-name">{{ plan.name }}</span>
+        <span class="plan-price">{{ plan.price }}/Month</span>
+        <span class="plan-button"><button class="button is-primary">Update</button></span>
+        </div>
+    </template>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="main.js">
+    </script>
+</body>
+
+</html>
