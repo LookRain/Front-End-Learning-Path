@@ -1,3 +1,19 @@
+// window.Event = new class {
+// 	contructor() {
+// 		this.vue = new Vue();
+// 	}
+
+// 	fire(event, data = null) {
+// 		this.vue.$emit(event, data);
+// 	}
+
+// 	listen(event, callback) {
+// 		this.vue.$on(event, callback);
+// 	}
+// }
+
+window.Event = new Vue();
+
 new Vue({
 	el: '#root',
 	data: {
@@ -9,6 +25,13 @@ new Vue({
 		],
 		active: {}
 	},
+	created() {
+		Event.$on('applied', (msg)=> {
+			this.active = msg;
+			console.log(this.active.name);
+		});
+	},
+	
 	
 	components: {
 		plan: {
@@ -16,16 +39,14 @@ new Vue({
 				<div>
 			        <span class="plan-name">{{ plan.name }}</span>
 			        <span class="plan-price">{{ plan.price }}/Month</span>
-	
+
 			        <span v-if="isActive">
 			        	Current Plan
 			        </span>
 			     
-			        <span class="v-else">
-			        	<button@click="selectPlan" class="button is-primary">{{ isUpgrade ? 'Upgrade' : 'Downgrade' }}</button>
-			        </span>
-			        
-			        
+			        <span v-else>
+			        	<button @click="selectPlan" class="v-else button is-primary">{{ isUpgrade ? 'Downgrade' : 'Upgrade' }}</button>
+			        </span>			      	        
         		</div>
 			`,
 			props: ['plan', 'active'],
@@ -38,15 +59,17 @@ new Vue({
                 },
 
                 isUpgrade() {
-                    return this.plan.price > this.active.price;
+                    return this.active.price > this.plan.price;
                 }
             },
 
 			methods: {
 				selectPlan() {
-					this.active = this.plan;
+					Event.$emit('applied', this.plan);
 				}
-			}
+			},
+
+			
 		}	
 	}
 });
