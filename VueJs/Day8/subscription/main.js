@@ -15,27 +15,22 @@
 window.Event = new Vue();
 
 new Vue({
-	el: '#root',
-	data: {
-		plans: [
-			{ name: 'Enterprise', price: 100 },
-			{ name: 'Professional', price: 50 },
-			{ name: 'Paid', price: 20 },
-			{ name: 'Free', price: 0 }
-		],
-		active: {}
-	},
-	created() {
-		Event.$on('applied', (msg)=> {
-			this.active = msg;
-			console.log(this.active.name);
-		});
-	},
-	
-	
-	components: {
-		plan: {
-			template: `
+    el: '#root',
+    data: {
+        plans: [
+            { name: 'Enterprise', price: 100 },
+            { name: 'Professional', price: 50 },
+            { name: 'Paid', price: 20 },
+            { name: 'Free', price: 0 }
+        ],
+        // active: {}
+    },
+
+
+
+    components: {
+        plan: {
+            template: `
 				<div>
 			        <span class="plan-name">{{ plan.name }}</span>
 			        <span class="plan-price">{{ plan.price }}/Month</span>
@@ -49,11 +44,24 @@ new Vue({
 			        </span>			      	        
         		</div>
 			`,
-			props: ['plan', 'active'],
+            props: ['plan'],
 
-		
+            data() {
+                return {
+                    active: {}
+                };
+            },
 
-			computed: {
+            created() {
+                Event.$on('applied', (msg) => {
+                    this.active = msg;
+                    console.log(this.active.name);
+                });
+            },
+
+
+
+            computed: {
                 isActive() {
                     return this.plan.name == this.active.name;
                 },
@@ -63,13 +71,11 @@ new Vue({
                 }
             },
 
-			methods: {
-				selectPlan() {
-					Event.$emit('applied', this.plan);
-				}
-			},
-
-			
-		}	
-	}
+            methods: {
+                selectPlan() {
+                    Event.$emit('applied', this.plan);
+                }
+            },
+        }
+    }
 });
