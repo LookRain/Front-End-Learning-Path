@@ -14,23 +14,9 @@
 
 window.Event = new Vue();
 
-new Vue({
-    el: '#root',
-    data: {
-        plans: [
-            { name: 'Enterprise', price: 100 },
-            { name: 'Professional', price: 50 },
-            { name: 'Paid', price: 20 },
-            { name: 'Free', price: 0 }
-        ],
-        // active: {}
-    },
+Vue.component('plan', {
 
-
-
-    components: {
-        plan: {
-            template: `
+    template: `
 				<div>
 			        <span class="plan-name">{{ plan.name }}</span>
 			        <span class="plan-price">{{ plan.price }}/Month</span>
@@ -44,38 +30,50 @@ new Vue({
 			        </span>			      	        
         		</div>
 			`,
-            props: ['plan'],
+    props: ['plan'],
 
-            data() {
-                return {
-                    active: {}
-                };
-            },
+    data() {
+        return {
+            active: {}
+        };
+    },
 
-            created() {
-                Event.$on('applied', (msg) => {
-                    this.active = msg;
-                    console.log(this.active.name);
-                });
-            },
+    created() {
+        Event.$on('applied', (msg) => {
+            this.active = msg;
+            console.log(this.active.name);
+        });
+    },
 
 
 
-            computed: {
-                isActive() {
-                    return this.plan.name == this.active.name;
-                },
+    computed: {
+        isActive() {
+            return this.plan.name == this.active.name;
+        },
 
-                isUpgrade() {
-                    return this.active.price > this.plan.price;
-                }
-            },
-
-            methods: {
-                selectPlan() {
-                    Event.$emit('applied', this.plan);
-                }
-            },
+        isUpgrade() {
+            return this.active.price > this.plan.price;
         }
-    }
+    },
+
+    methods: {
+        selectPlan() {
+            Event.$emit('applied', this.plan);
+        }
+    },
+
+});
+
+new Vue({
+    el: '#root',
+    data: {
+        plans: [
+            { name: 'Enterprise', price: 100 },
+            { name: 'Professional', price: 50 },
+            { name: 'Paid', price: 20 },
+            { name: 'Free', price: 0 }
+        ],
+        // active: {}
+    },
 });
