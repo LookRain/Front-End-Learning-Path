@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
+    <style type="text/css">
+    body {
+        padding-top: 40px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="notification is-primary" id="one">
+        <p>shared</p>
+        <h1 class="title is-1">{{ shared.user.name }}</h1>
+        <p>private</p>
+        <h2 class="title is-3">{{ foo }}</h2>
+    </div>
+    <hr>
+    <div class="notification is-primary" id="two">
+        <p>shared</p>
+        <h1 class="title is-1">{{ shared.user.name }}</h1>
+        <p>private</p>
+        <h2 class="title is-3">{{ foo }}</h2>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="main.js">
+    </script>
+</body>
+
+</html>
