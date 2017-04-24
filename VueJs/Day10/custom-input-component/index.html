@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css">
+    <style type="text/css">
+    body {
+        padding-top: 40px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="root" class="container">
+        <div class="columns">
+
+
+            <!-- <div class="column is-3">
+                <div class="notification is-primary">
+                    <input class="input" type="text" v-model="coupon">
+                    <hr>
+                    <input class="input" type="text" :value="coupon" @input="updateCoupon($event.target.value)">
+                </div>
+            </div>
+ -->
+            <div class="column is-3">
+                <div class="notification is-warning">
+
+
+                    <coupon v-model="coupon">
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="main.js">
+    </script>
+</body>
+
+</html>
