@@ -9,7 +9,6 @@ Vue.component('coupon', {
     	return {
     		validCodes: ['3154', '666', '999']
     	}
-    	
     },
 
     template: `
@@ -28,8 +27,6 @@ Vue.component('coupon', {
             this.$emit('input', code);
         }
     },
-    
-
 });
 
 /*
