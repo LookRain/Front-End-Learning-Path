@@ -60,7 +60,7 @@ Vue.component('tasks-app', {
                 <h1 class="notification is-warning">Finished Tasks: <span v-show="finishedNum">({{ finishedNum }})</span></h1>
                 <ul>
                     <li v-for="task in tasks_list">
-                        <span v-show="isCompleted(task)" class="notification column is-10 is-offset-1 has-text-centered" :class="{ 'completed': task.completed }">
+                        <span v-show="isCompleted(task)" class="notification column is-10 has-text-centered" :class="{ 'completed': task.completed }">
                                             <button class="button delete is-danger" @click="deleteTask(task)"></button>
                                             <span @click="task.completed=!task.completed">
                                                 {{ task.body }}

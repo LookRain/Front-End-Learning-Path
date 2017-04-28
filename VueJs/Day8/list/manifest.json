@@ -1,0 +1,24 @@
+{
+  "short_name": "V-ToDo",
+  "name": "V-ToDo",
+  "icons": [
+    {
+      "src": "v-icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "v-icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "v-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/v-todo/index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}
