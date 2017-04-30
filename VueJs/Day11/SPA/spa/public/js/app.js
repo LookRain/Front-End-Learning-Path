@@ -19704,6 +19704,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -20578,19 +20580,28 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "value": (_vm.form.body)
     },
     on: {
+      "keydown": function($event) {
+        _vm.form.errors.clear()
+      },
       "input": function($event) {
         if ($event.target.composing) { return; }
         _vm.form.body = $event.target.value
       }
     }
-  })]), _vm._v(" "), _vm._m(0)])])])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('p', {
+  }), _vm._v(" "), (_vm.form.errors.has('body')) ? _c('span', {
+    staticClass: "help is-danger",
+    domProps: {
+      "textContent": _vm._s(_vm.form.errors.get('body'))
+    }
+  }) : _vm._e()]), _vm._v(" "), _c('p', {
     staticClass: "control"
   }, [_c('button', {
-    staticClass: "button is-primary"
-  }, [_vm._v("Submit")])])
-}]}
+    staticClass: "button is-primary",
+    attrs: {
+      "disabled": _vm.form.errors.any()
+    }
+  }, [_vm._v("Submit")])])])])])
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

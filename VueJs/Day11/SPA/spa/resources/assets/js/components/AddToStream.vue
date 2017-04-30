@@ -8,12 +8,14 @@
 			<form @submit.prevent="onSubmit">			
 				<p class="control">
 
-					<textarea class="textarea" placeholder="i have sth to say..." v-model="form.body"></textarea>
+					<textarea class="textarea" placeholder="i have sth to say..." v-model="form.body" @keydown="form.errors.clear()"></textarea>
+
+					<span class="help is-danger" v-if="form.errors.has('body')" v-text="form.errors.get('body')"></span>
 
 				</p>
 
 				<p class="control">
-					<button class="button is-primary">Submit</button>
+					<button class="button is-primary" :disabled="form.errors.any()">Submit</button>
 				</p>
 			</form>
 
