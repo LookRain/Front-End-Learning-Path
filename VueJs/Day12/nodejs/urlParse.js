@@ -11,3 +11,4 @@ console.log(q.search);
 var qdata = q.query;
 
 console.log(qdata);
+
