@@ -3,8 +3,10 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const globalstore = new Vuex.Store({
 	state: {
-		count: 3
+		count: 5
 	}
-})
+});
+
+export default globalstore
