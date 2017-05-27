@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+    
         <div class="columns">
             <div class="column">
                 <div class="message" v-for="status in statuses">
