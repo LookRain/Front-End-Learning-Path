@@ -27,7 +27,11 @@ body {
 }
 
 .clock-face {
-
+	/*border: 1px solid;*/
+	position: relative;
+	width: 100%;
+	height: 100%;
+	
 }
 
 .hand {
@@ -35,9 +39,32 @@ body {
 	position :absolute;
 	top: 50%;
 
-	height: 0.6rem;
+	height: 0.2rem;
 	width: 15rem;
 	transform-origin: 100%;
 	transition: all 0.05s;
 	transition-timing-function: cubic-bezier(0, 0, 0.06, 2.04);
+}
+.min-hand {
+	height: 0.4rem;
+	width: 12rem;
+	left: 3rem;
+}
+.hour-hand {
+	height: 0.6rem;
+	width: 10rem;
+	left: 5rem;
+}
+.numbers {
+	text-align: center;
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	height: 50%;
+	transform-origin: 0% 100%;
+}
+.number {
+	text-align: center;
+	/*width: 0px;*/
+
 }
