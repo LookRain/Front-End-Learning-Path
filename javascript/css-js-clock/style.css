@@ -1,0 +1,43 @@
+html {
+	background: #018DED;
+	background-size: cover;
+	font-family: 'helvetica neue';
+	text-align: center;
+	font-size: 10px;
+}
+
+body {
+	margin: 0;
+	font-size: 2rem;
+	display:flex;
+	flex:1;
+	min-height: 100vh;
+	align-items: center;
+}
+
+.clock {
+	margin:50px auto;
+	padding:2rem;
+	height: 30rem;
+	width: 30rem;
+	border: 20px solid white;
+	border-radius: 50%;
+	border-color: white;
+	position: relative;
+}
+
+.clock-face {
+
+}
+
+.hand {
+	background: black;
+	position :absolute;
+	top: 50%;
+
+	height: 0.6rem;
+	width: 15rem;
+	transform-origin: 100%;
+	transition: all 0.05s;
+	transition-timing-function: cubic-bezier(0, 0, 0.06, 2.04);
+}
