@@ -1,8 +1,8 @@
 <template>
 <div>
 	part 2:
-	<p>{{s}}</p>
-	<input type="text" v-model="s">
+	<p>{{s.prop1}}</p>
+	<input type="text" v-model="s.prop1">
 </div>
 </template>
 <script>
