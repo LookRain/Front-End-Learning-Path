@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class Square extends React.Component {
+export default class Square extends React.Component {
   render() {
     return (
       <button className="square">
-        {/* TODO */}
+        {this.props.value}
       </button>
     );
   }

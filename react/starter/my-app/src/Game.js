@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Board from './Board'
 
-class Game extends React.Component {
+export default class Game extends React.Component {
   render() {
     return (
       <div className="game">
