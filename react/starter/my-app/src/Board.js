@@ -20,6 +20,10 @@ export default class Board extends React.Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice() //use slice() to copy the array
+
+    if (calculateWinner(squares) || squares[i]) {
+      return
+    }
     const xNext = this.state.xNext
     if (xNext) {
       squares[i] = 'X'
