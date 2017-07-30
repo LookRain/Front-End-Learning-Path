@@ -6,6 +6,7 @@ export default class Board extends React.Component {
     super()
     this.state = {
       squares: Array(9).fill(null),
+      xNext: false,
     }
   }
 
@@ -18,13 +19,22 @@ export default class Board extends React.Component {
   }
 
   handleClick(i) {
-    const squares = this.state.squares.slice()
-    squares[i] = 'X'
-    this.setState({squares: squares})
+    const squares = this.state.squares.slice() //use slice() to copy the array
+    const xNext = this.state.xNext
+    if (xNext) {
+      squares[i] = 'X'
+    } else {
+      squares[i] = 'O'
+    }
+    
+    this.setState({
+      squares: squares,
+      xNext: !xNext
+    })
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = `Next player: ${(this.state.xNext ? 'X' : 'O')}`
 
     return (
       <div>
