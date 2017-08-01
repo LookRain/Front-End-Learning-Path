@@ -1,3 +1,4 @@
+let currentdate = new Date();
 
 function tick() {
   ReactDOM.render(
@@ -10,3 +11,25 @@ function tick() {
 }
 
 setInterval(tick, 1000)
+
+/*
+Vue copy:
+
+function baz() {
+alert("sdf")
+}
+new Vue({
+  el: '#root',
+  data: {time: 'ddtest'},
+  methods: {
+    test() {
+      this.time = new Date().toLocaleTimeString()
+    }
+  },
+  mounted() {
+    setInterval(this.test, 1000)
+  }
+})
+
+
+*/
