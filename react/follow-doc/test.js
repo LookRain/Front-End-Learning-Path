@@ -2,7 +2,7 @@ function Greet(props) {
   return <h1>Hi, {props.name}</h1>
 }
 
-function App(props) {
+function App(props) {  
   // let i
   // let result = []
   // for (i = 0; i < 10; i++) {
@@ -21,7 +21,7 @@ function App(props) {
 }
 
 function NumberList(props) {
-  const numbers = props.numbers;
+    const numbers = props.numbers;
   return (
     <ul>
          {numbers.map((number) =>
