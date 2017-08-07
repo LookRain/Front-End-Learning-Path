@@ -1,6 +1,10 @@
 {
-  // "parser": "babel-eslint",
-  "extends": "airbnb"
+//   "parser": "babel-eslint",
+//   "parserOptions": {
+//     "sourceType": "module"
+// },
+  "extends": "react-app"
+
   // "plugins": [
   //   "react"
   // ]
