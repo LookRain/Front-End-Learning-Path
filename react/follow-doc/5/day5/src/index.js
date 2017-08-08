@@ -21,7 +21,11 @@ import Clock from './Clock'
   2nd approach
 */
 ReactDOM.render(
-  <Clock />,
+  <div>
+    <Clock></Clock>
+    <Clock></Clock>
+    <Clock></Clock>
+  </div>,
   document.getElementById('root')
 )
 
