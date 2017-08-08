@@ -1,0 +1,6 @@
+{
+    "extends": ["standard", "react-app"]
+    // "plugins": [
+    //     "class-property"
+    // ]
+}
