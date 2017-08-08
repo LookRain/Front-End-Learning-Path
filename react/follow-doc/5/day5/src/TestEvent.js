@@ -1,14 +1,8 @@
 import React, { Component } from 'react'
 
 class TestEvent extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      status: true
-    }
-    // MUST USE BIND to make `this` work in the callback
-    this.handleClick = this.handleClick.bind(this)
+  state = {
+    status: true
   }
 
   render () {
@@ -20,7 +14,7 @@ class TestEvent extends Component {
   }
 
   // Use preventDefault
-  handleClick () {
+  handleClick = () => {
     this.setState(prevState => (
       {
         status: !prevState.status

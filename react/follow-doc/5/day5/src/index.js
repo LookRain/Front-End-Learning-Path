@@ -5,6 +5,7 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import Clock from './Clock'
 import TestEvent from './TestEvent'
+// import LoggingButton from './LoggingButton'
 
 /*
   1st approach

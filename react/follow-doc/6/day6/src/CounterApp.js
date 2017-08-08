@@ -1,12 +1,8 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+// import logo from './logo.svg'
 import './App.css'
 
 class CounterApp extends Component {
-  state = {
-    count: 0
-  }
-
   incrementCount = () => {
     this.setState((prevState) => (
       { count: prevState.count + 1 }

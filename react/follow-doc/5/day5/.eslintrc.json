@@ -12,10 +12,13 @@
     //     "sourceType": "module"
     // },
 
-    "extends": ["standard", "react-app"],
-    "rules": {
+    "extends": ["standard", "react-app"]
+    // "plugins": [
+    //     "class-property"
+    // ]
+    // "rules": {
 
-    }
+    // }
 	// "plugins": [
 	// 	"react"
 	// ]
