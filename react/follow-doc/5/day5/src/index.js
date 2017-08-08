@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import Clock from './Clock'
+import TestEvent from './TestEvent'
 
 /*
   1st approach
@@ -22,9 +23,7 @@ import Clock from './Clock'
 */
 ReactDOM.render(
   <div>
-    <Clock></Clock>
-    <Clock></Clock>
-    <Clock></Clock>
+    <TestEvent></TestEvent>
   </div>,
   document.getElementById('root')
 )
