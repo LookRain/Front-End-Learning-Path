@@ -3,12 +3,15 @@ import React, { Component } from 'react'
 import './App.css'
 import Clock from './Clock'
 
-class App extends Component {
-  render () {
-    return (
-      <Clock date={new Date()}></Clock>
-    )
-  }
-}
+/*
+  1st approach
+*/
+// class App extends Component {
+//   render () {
+//     return (
+//       <Clock date={new Date()}></Clock>
+//     )
+//   }
+// }
 
-export default App
+// export default App

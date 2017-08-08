@@ -3,14 +3,26 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import registerServiceWorker from './registerServiceWorker'
-// import Clock from './Clock'
+import Clock from './Clock'
 
-function tick () {
-  ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-  )
-}
+/*
+  1st approach
+*/
+// function tick () {
+//   ReactDOM.render(
+//     <Clock date={new Date()}></Clock>,
+//     document.getElementById('root')
+//   )
+// }
 
-setInterval(tick, 1000)
+// setInterval(tick, 1000)
+
+/*
+  2nd approach
+*/
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+)
+
 registerServiceWorker()
