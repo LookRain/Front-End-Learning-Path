@@ -4,7 +4,8 @@ import Greeting from './Greeting'
 
 class LoginControl extends Component {
   state = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    value: ''
   }
 
   handleLoginClick = () => {
@@ -13,6 +14,10 @@ class LoginControl extends Component {
 
   handleLogoutClick = () => {
     this.setState({isLoggedIn: false})
+  }
+
+  handleChange = (e) => {
+    this.setState({value: e.target.value})
   }
 
   render () {
@@ -38,8 +43,29 @@ class LoginControl extends Component {
     /*
       Approach 2: Inline if else
     */
+    // return (
+    //   <div>
+    //     <Greeting isLoggedIn={isLoggedIn} />
+    //     {
+    //       isLoggedIn ? (
+    //         <LogoutButton onClick={this.handleLogoutClick}></LogoutButton>
+    //       ) : (
+    //         <LoginButton onClick={this.handleLoginClick}></LoginButton>
+    //       )
+    //     }
+    //   </div>
+    // )
+
+    /*
+      Approach 3: Inline if using &&
+      It works because in JavaScript, true && expression always evaluates to expression, and false && expression always evaluates to false
+    */
     return (
       <div>
+        <h1>{this.state.value}</h1>
+        {this.state.value &&
+        <h2>Indeed something is in the input box...</h2>}
+        <input type="text" value={this.state.value} onChange={this.handleChange}/>
         <Greeting isLoggedIn={isLoggedIn} />
         {
           isLoggedIn ? (
