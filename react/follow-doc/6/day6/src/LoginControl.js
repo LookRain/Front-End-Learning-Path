@@ -5,7 +5,8 @@ import Greeting from './Greeting'
 class LoginControl extends Component {
   state = {
     isLoggedIn: false,
-    value: ''
+    value: '',
+    shouldShow: true
   }
 
   handleLoginClick = () => {
@@ -18,6 +19,11 @@ class LoginControl extends Component {
 
   handleChange = (e) => {
     this.setState({value: e.target.value})
+  }
+
+  handleToggle = (e) => {
+    console.log(e.target.checked)
+    this.setState({shouldShow: e.target.checked})
   }
 
   render () {
@@ -66,7 +72,10 @@ class LoginControl extends Component {
         {this.state.value &&
         <h2>Indeed something is in the input box...</h2>}
         <input type="text" value={this.state.value} onChange={this.handleChange}/>
-        <Greeting isLoggedIn={isLoggedIn} />
+
+        <input type="checkbox" checked={this.state.shouldShow} onChange={this.handleToggle} />
+
+        <Greeting isLoggedIn={isLoggedIn} shouldShow={this.state.shouldShow} />
         {
           isLoggedIn ? (
             <LogoutButton onClick={this.handleLogoutClick}></LogoutButton>
