@@ -56,4 +56,38 @@ class EssayForm extends Component {
   }
 }
 
-export {NameForm, EssayForm}
+class SelectForm extends Component {
+  state = {
+    value: ''
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      value: e.target.value
+    })
+  }
+
+  handleClick = (e) => {
+    e.preventDefault()
+    alert(`You picked ${this.state.value}!`)
+  }
+
+  render () {
+    return (
+      <form>
+        <label>
+          Pick:
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value="grapefruit">Grapefruit</option>
+            <option value="lime">Lime</option>
+            <option value="coconut">Coconut</option>
+            <option value="mango">Mango</option>
+          </select>
+        </label>
+      <input type="submit" value="Yea" onClick={this.handleClick}/>
+      </form>
+    )
+  }
+}
+
+export {NameForm, EssayForm, SelectForm}
