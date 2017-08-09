@@ -5,7 +5,7 @@ import CounterApp from './CounterApp'
 import Greeting from './Greeting'
 import LoginControl from './LoginControl'
 import NumberList from './NumberList'
-import NameForm from './NameForm'
+import {NameForm, EssayForm} from './Forms'
 import registerServiceWorker from './registerServiceWorker'
 
 ReactDOM.render(
@@ -14,7 +14,7 @@ ReactDOM.render(
   // </div>,
 
   <div>
-    <NameForm></NameForm>
+    <EssayForm></EssayForm>
   </div>,
 document.getElementById('root'))
 registerServiceWorker()
