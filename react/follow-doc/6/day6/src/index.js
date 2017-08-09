@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker'
 
 ReactDOM.render(
   <div>
-    <NumberList numbers={[1, 2, 3, 4, 5]}></NumberList>
+    <NumberList numbers={[1, 2, 3, 4, 6]}></NumberList>
   </div>,
 document.getElementById('root'))
 registerServiceWorker()
