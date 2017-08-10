@@ -6,6 +6,7 @@ import Greeting from './Greeting'
 import LoginControl from './LoginControl'
 import NumberList from './NumberList'
 import {NameForm, EssayForm, SelectForm} from './Forms'
+import MultiForm from './MultiForm'
 import registerServiceWorker from './registerServiceWorker'
 
 ReactDOM.render(
@@ -14,7 +15,7 @@ ReactDOM.render(
   // </div>,
 
   <div>
-    <SelectForm></SelectForm>
+    <MultiForm></MultiForm>
   </div>,
 document.getElementById('root'))
 registerServiceWorker()
