@@ -8,6 +8,7 @@ import NumberList from './NumberList'
 import {NameForm, EssayForm, SelectForm} from './Forms'
 import MultiForm from './MultiForm'
 import registerServiceWorker from './registerServiceWorker'
+import WelcomeDialog from './WelcomeDialog'
 
 ReactDOM.render(
   // <div>
@@ -15,7 +16,7 @@ ReactDOM.render(
   // </div>,
 
   <div>
-    <MultiForm></MultiForm>
+    <WelcomeDialog></WelcomeDialog>
   </div>,
 document.getElementById('root'))
 registerServiceWorker()
