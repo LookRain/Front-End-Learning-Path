@@ -12,7 +12,9 @@ class Todo extends Component {
       <section className="section">
         <div className="container has-text-centered">
           <Header />
-          {this.state.tasks.map(task => <Task task={task}/>)}
+          {this.state.tasks.map(task => <Task task={task} />)}
+          <hr/>
+          {this.state.finished.map(task => <FinishedTask task={task} />)}
         </div>
       </section>
 
@@ -29,6 +31,20 @@ class Task extends Component {
     return (
       <div>
         <p className="notification">{this.props.task}</p>
+      </div>
+    )
+  }
+}
+
+class FinishedTask extends Component {
+  state = {
+    done: false
+  }
+
+  render () {
+    return (
+      <div>
+        <p className="notification" style={{textDecoration: 'line-through'}}>{this.props.task}</p>
       </div>
     )
   }
