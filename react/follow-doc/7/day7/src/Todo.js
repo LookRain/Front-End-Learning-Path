@@ -9,9 +9,12 @@ class Todo extends Component {
   }
   markComplete = (id) => {
     let t = this.state.tasks[id]
+
+    let tempTasks = this.state.tasks.slice()
+    tempTasks.splice(id, 1)
     this.setState({
-      finished: this.state.finished.slice().push(t),
-      tasks: this.state.tasks.slice().splice(id, 1)
+      // finished: this.state.finished.slice().push(t),
+      tasks: tempTasks
     })
     alert(id)
   }
@@ -42,7 +45,7 @@ class Task extends Component {
   render () {
     return (
 
-      <div className="notification">{this.props.children}</div>
+      <div className="notification" style={{marginBottom: '0.2rem'}}>{this.props.children}</div>
 
     )
   }
@@ -56,7 +59,13 @@ class FinishedTask extends Component {
   render () {
     return (
 
-      <div className="notification" style={{textDecoration: 'line-through'}}>{this.props.children}</div>
+      <div className="notification"
+        style={{
+          textDecoration: 'line-through',
+          marginBottom: '0.2rem'}
+        }>
+        {this.props.children}
+      </div>
     )
   }
 }
