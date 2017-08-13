@@ -12,9 +12,13 @@ class Todo extends Component {
 
     let tempTasks = this.state.tasks.slice()
     tempTasks.splice(id, 1)
+
+    let tempFinished = this.state.tasks.slice()
+    tempFinished.push(t)
     this.setState({
       // finished: this.state.finished.slice().push(t),
-      tasks: tempTasks
+      tasks: tempTasks,
+      finished: tempFinished
     })
     alert(id)
   }
