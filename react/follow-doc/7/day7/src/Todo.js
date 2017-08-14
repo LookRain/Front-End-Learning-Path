@@ -34,7 +34,14 @@ class Todo extends Component {
     let tempTasks = this.state.tasks.slice()
     tempTasks.push(this.state.input)
     this.setState({
-      tasks: tempTasks
+      tasks: tempTasks,
+      input: ''
+    })
+    this.clearInput()
+  }
+  clearInput = () => {
+    this.setState({
+      input: ''
     })
   }
   handleClick = (e) => {
@@ -46,16 +53,18 @@ class Todo extends Component {
         <Header />
         <section className="section">
           <div className="container has-text-centered">
-            <TaskInput onChange={this.handleChange} onClick={this.handleClick}/>
+            <TaskInput onChange={this.handleChange} onClick={this.handleClick} inputValue={this.state.input} />
             <TaskHeader />
-            {this.state.tasks.map((task, id) => <Task index={id} key={id}>
-              <div onClick={() => { this.markComplete(id) }}>{task}</div>
+
+            {this.state.tasks.map((task, id) =>
+            <Task key={id} onClick={() => { this.markComplete(id) }}>
+              {task}
             </Task>)}
 
             <hr/>
             <FinishedHeader/>
-            {this.state.finished.map((task, id) => <FinishedTask index={id} key={id}>
-              <div onClick={() => {}}>{task}</div>
+            {this.state.finished.map((task, id) => <FinishedTask key={id}>
+              <div>{task}</div>
             </FinishedTask>)}
           </div>
         </section>
@@ -71,7 +80,7 @@ class TaskInput extends Component {
     return (
       <div className="columns">
         <div className="column is-8">
-          <TextInput onChange={this.props.onChange}></TextInput></div>
+          <TextInput onChange={this.props.onChange} inputValue={this.props.inputValue}></TextInput></div>
         <div className="column is-2"><div className="button is-primary" name="add" onClick={this.props.onClick}>Add</div></div>
         <div className="column is-2"><div className="button is-danger" name="clear" onClick={this.props.onClick}>Clear All</div></div>
       </div>
@@ -87,7 +96,7 @@ class Task extends Component {
   render () {
     return (
 
-      <div className="notification" style={{marginBottom: '0.2rem'}}>{this.props.children}</div>
+      <div className="notification" style={{marginBottom: '0.5rem'}} onClick={this.props.onClick}>{this.props.children}</div>
 
     )
   }
@@ -135,7 +144,7 @@ class TextInput extends Component {
 
   render () {
     return (
-      <input type="text" className="input is-primary" onChange={this.props.onChange}/>
+      <input type="text" className="input is-primary" onChange={this.props.onChange} value={this.props.inputValue}/>
     )
   }
 }
