@@ -5,7 +5,8 @@ import React, { Component } from 'react'
 class Todo extends Component {
   state = {
     tasks: ['one', 'two', 'three'],
-    finished: ['f1', 'f2']
+    finished: ['f1', 'f2'],
+    text: ''
   }
   markComplete = (id) => {
     let t = this.state.tasks[id]
@@ -22,13 +23,20 @@ class Todo extends Component {
     })
     alert(id)
   }
+  handleChange = (e) => {
+    let input = e.target.value
+    // alert(input)
+    this.setState({
+      text: input
+    })
+  }
   render () {
     return (
       <div>
         <Header />
         <section className="section">
           <div className="container has-text-centered">
-            <TaskInput/>
+            <TaskInput onChange={this.handleChange}/>
             <TaskHeader />
             {this.state.tasks.map((task, id) => <Task index={id} key={task}>
               <div onClick={() => { this.markComplete(id) }}>{task}</div>
@@ -52,7 +60,8 @@ class TaskInput extends Component {
   render () {
     return (
       <div className="columns">
-        <div className="column is-8"><TextInput></TextInput></div>
+        <div className="column is-8">
+          <TextInput onChange={this.props.onChange}></TextInput></div>
         <div className="column is-2"><div className="button is-primary">Add</div></div>
         <div className="column is-2"><div className="button is-danger">Clear All</div></div>
       </div>
@@ -113,9 +122,10 @@ class TextInput extends Component {
   state = {
 
   }
+
   render () {
     return (
-      <input type="text" className="input is-primary" />
+      <input type="text" className="input is-primary" onChange={this.props.onChange}/>
     )
   }
 }
