@@ -56,6 +56,9 @@ class Todo extends Component {
     e.target.getAttribute('name') === 'add' && this.addTask()
     e.target.getAttribute('name') === 'clear' && this.clearAll()
   }
+  handleKeyPress = (e) => {
+    e.key === 'Enter' && this.addTask()
+  }
 
   render () {
     return (
@@ -63,7 +66,7 @@ class Todo extends Component {
         <Header />
         <section className="section">
           <div className="container has-text-centered">
-            <TaskInput onChange={this.handleChange} onClick={this.handleClick} inputValue={this.state.input} />
+            <TaskInput onChange={this.handleChange} onClick={this.handleClick} inputValue={this.state.input} onKeyPress={this.handleKeyPress} />
             <TaskHeader />
 
             {this.state.tasks.map((task, id) =>
@@ -90,7 +93,7 @@ class TaskInput extends Component {
     return (
       <div className="columns">
         <div className="column is-8">
-          <TextInput onChange={this.props.onChange} inputValue={this.props.inputValue}></TextInput></div>
+          <TextInput onChange={this.props.onChange} inputValue={this.props.inputValue} onKeyPress={this.props.onKeyPress}></TextInput></div>
         <div className="column is-2"><div className="button is-primary" name="add" onClick={this.props.onClick}>Add</div></div>
         <div className="column is-2"><div className="button is-danger" name="clear" onClick={this.props.onClick}>Clear All</div></div>
       </div>
@@ -154,7 +157,7 @@ class TextInput extends Component {
 
   render () {
     return (
-      <input type="text" className="input is-primary" onChange={this.props.onChange} value={this.props.inputValue}/>
+      <input type="text" className="input is-primary" onChange={this.props.onChange} value={this.props.inputValue} onKeyPress={this.props.onKeyPress}/>
     )
   }
 }
