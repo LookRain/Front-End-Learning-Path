@@ -6,7 +6,7 @@ class Todo extends Component {
   state = {
     tasks: ['one', 'two', 'three'],
     finished: ['f1', 'f2'],
-    text: ''
+    input: ''
   }
   markComplete = (id) => {
     let t = this.state.tasks[id]
@@ -21,14 +21,24 @@ class Todo extends Component {
       tasks: tempTasks,
       finished: tempFinished
     })
-    alert(id)
+    // alert(id)
   }
   handleChange = (e) => {
     let input = e.target.value
     // alert(input)
     this.setState({
-      text: input
+      input: input
     })
+  }
+  addTask = () => {
+    let tempTasks = this.state.tasks.slice()
+    tempTasks.push(this.state.input)
+    this.setState({
+      tasks: tempTasks
+    })
+  }
+  handleClick = (e) => {
+    e.target.getAttribute('name') === 'add' && this.addTask()
   }
   render () {
     return (
@@ -36,15 +46,15 @@ class Todo extends Component {
         <Header />
         <section className="section">
           <div className="container has-text-centered">
-            <TaskInput onChange={this.handleChange}/>
+            <TaskInput onChange={this.handleChange} onClick={this.handleClick}/>
             <TaskHeader />
-            {this.state.tasks.map((task, id) => <Task index={id} key={task}>
+            {this.state.tasks.map((task, id) => <Task index={id} key={id}>
               <div onClick={() => { this.markComplete(id) }}>{task}</div>
             </Task>)}
 
             <hr/>
             <FinishedHeader/>
-            {this.state.finished.map((task, id) => <FinishedTask index={id} key={task}>
+            {this.state.finished.map((task, id) => <FinishedTask index={id} key={id}>
               <div onClick={() => {}}>{task}</div>
             </FinishedTask>)}
           </div>
@@ -62,8 +72,8 @@ class TaskInput extends Component {
       <div className="columns">
         <div className="column is-8">
           <TextInput onChange={this.props.onChange}></TextInput></div>
-        <div className="column is-2"><div className="button is-primary">Add</div></div>
-        <div className="column is-2"><div className="button is-danger">Clear All</div></div>
+        <div className="column is-2"><div className="button is-primary" name="add" onClick={this.props.onClick}>Add</div></div>
+        <div className="column is-2"><div className="button is-danger" name="clear" onClick={this.props.onClick}>Clear All</div></div>
       </div>
     )
   }
