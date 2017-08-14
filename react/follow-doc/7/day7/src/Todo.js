@@ -60,6 +60,13 @@ class Todo extends Component {
     e.key === 'Enter' && this.addTask()
   }
 
+  handleDelete = (id) => {
+    let tempFinished = this.state.finished.slice(id, id + 1)
+    this.setState({
+      finished: tempFinished
+    })
+  }
+
   render () {
     return (
       <div>
@@ -76,7 +83,7 @@ class Todo extends Component {
 
             <hr/>
             <FinishedHeader/>
-            {this.state.finished.map((task, id) => <FinishedTask key={id}>
+            {this.state.finished.map((task, id) => <FinishedTask key={id} onDelete={() => { this.handleDelete(id) }}>
               <div>{task}</div>
             </FinishedTask>)}
           </div>
@@ -122,13 +129,12 @@ class FinishedTask extends Component {
 
   render () {
     return (
-
       <div className="notification"
         style={{
           textDecoration: 'line-through',
           marginBottom: '0.2rem'}
         }>
-        {this.props.children}
+        <span>{this.props.children}</span><DeleteButton onDelete={this.props.onDelete} />
       </div>
     )
   }
@@ -171,6 +177,12 @@ function TaskHeader () {
 function FinishedHeader () {
   return (
     <div className="notification is-warning">Finished Taks:</div>
+  )
+}
+
+function DeleteButton (props) {
+  return (
+    <button className="delete is-danger" style={{top: '1.5em'}} onClick={props.onDelete}></button>
   )
 }
 
