@@ -44,9 +44,19 @@ class Todo extends Component {
       input: ''
     })
   }
+  clearAll = () => {
+    // alert('clearing')
+    this.setState({
+      tasks: [],
+      finished: [],
+      input: ''
+    })
+  }
   handleClick = (e) => {
     e.target.getAttribute('name') === 'add' && this.addTask()
+    e.target.getAttribute('name') === 'clear' && this.clearAll()
   }
+
   render () {
     return (
       <div>
