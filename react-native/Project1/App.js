@@ -1,13 +1,49 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
 
 export default class App extends React.Component {
   render() {
     return (
-      <AlignItemsBasics></AlignItemsBasics>
+      <PizzaTranslator></PizzaTranslator>
     );
   }
 }
+
+function ButtonBasics() {
+  return (<Button
+    onPress={() => { Alert.alert('You tapped the button!')}}
+    title="Press Me"
+  />)
+}
+
+
+
+class PizzaTranslator extends Component {
+  state = {
+    text: ''
+  }
+  render() {
+    return (
+      <View style={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'stretch',
+      }}>
+        <Text>{this.state.text.split(' ').map(word => word && '🍕').join('-')}</Text>
+
+
+        <TextInput 
+        style={{height: 40}} 
+        placeholder="Type here for translation!" 
+        onChangeText={text=>{this.setState({text})}}>
+        </TextInput>
+      
+      </View>
+    )
+  }
+}
+
 
 class AlignItemsBasics extends Component {
   render() {
@@ -19,12 +55,12 @@ class AlignItemsBasics extends Component {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'flex-end',
+        alignItems: 'stretch',
         //Available options are flex-start, center, flex-end, and stretch
       }}>
-        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+        <View style={{height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{height: 50, backgroundColor: 'skyblue'}} />
+        <View style={{height: 50, backgroundColor: 'steelblue'}} />
       </View>
     );
   }
