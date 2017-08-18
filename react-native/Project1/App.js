@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 export default class App extends React.Component {
   render() {
     return (
-      <FlexDimensionsBasics></FlexDimensionsBasics>
+      <JustifyContentBasics></JustifyContentBasics>
     );
   }
 }
@@ -22,6 +22,25 @@ class FixedDimensionsBasics extends Component {
   }
 }
 
+class JustifyContentBasics extends Component {
+  render() {
+    return (
+      // Try setting `justifyContent` to `center`.
+      // Try setting `flexDirection` to `row`.
+      <View style={{
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+        //flex-start, center, flex-end, space-around, and space-between.
+      }}>
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
+      </View>
+    );
+  }
+};
+
 class FlexDimensionsBasics extends Component {
   render() {
     return (
@@ -32,8 +51,8 @@ class FlexDimensionsBasics extends Component {
         <View style={{flex: 1, backgroundColor: 'powderblue'}} />
         <View style={{flex: 2, backgroundColor: 'skyblue'}} />
         <View style={{flex: 3, backgroundColor: 'steelblue'}}> 
-          <View style={{flex: 3, flexDirection: 'column'}}> 
-          <View style={{flex: 1, backgroundColor: 'red'}} />
+          <View style={{flex: 3, flexDirection: 'column',justifyContent: 'space-between'}}> 
+          <View style={{flex: 1, backgroundColor: 'red'}}><Text>hello world!</Text></View>
           <View style={{flex: 2, backgroundColor: 'pink'}} />
           </View>
         </View>
