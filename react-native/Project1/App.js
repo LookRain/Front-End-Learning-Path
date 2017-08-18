@@ -4,9 +4,40 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 export default class App extends React.Component {
   render() {
     return (
-      <Bananas>
-        some bananas
-      </Bananas>
+      <FlexDimensionsBasics></FlexDimensionsBasics>
+    );
+  }
+}
+
+class FixedDimensionsBasics extends Component {
+  render() {
+    return (
+      <View>
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
+        <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
+        <View style={{width: 300, height: 300, backgroundColor: 'steelblue'}} />
+      </View>
+    );
+  }
+}
+
+class FlexDimensionsBasics extends Component {
+  render() {
+    return (
+      // Try removing the `flex: 1` on the parent View.
+      // The parent will not have dimensions, so the children can't expand.
+      // What if you add `height: 300` instead of `flex: 1`?
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        <View style={{flex: 1, backgroundColor: 'powderblue'}} />
+        <View style={{flex: 2, backgroundColor: 'skyblue'}} />
+        <View style={{flex: 3, backgroundColor: 'steelblue'}}> 
+          <View style={{flex: 3, flexDirection: 'column'}}> 
+          <View style={{flex: 1, backgroundColor: 'red'}} />
+          <View style={{flex: 2, backgroundColor: 'pink'}} />
+          </View>
+        </View>
+      </View>
     );
   }
 }
