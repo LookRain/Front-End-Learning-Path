@@ -1,10 +1,39 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
+import { Alert, StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
 
 export default class App extends React.Component {
+  onPressButton() {
+    Alert.alert('You tapped the button!')
+  }
+
   render() {
     return (
-      <PizzaTranslator></PizzaTranslator>
+      <View style={styles.container}>
+        <View style={styles.buttonContainer}>
+          <Button
+            onPress={this.onPressButton}
+            title="Press Me"
+          />
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button
+            onPress={this.onPressButton}
+            title="Press Me"
+            color="#841584"
+          />
+        </View>
+        <View style={styles.alternativeLayoutButtonContainer}>
+          <Button
+            onPress={this.onPressButton}
+            title="This looks great!"
+          />
+          <Button
+            onPress={this.onPressButton}
+            title="OK!"
+            color="#841584"
+          />
+        </View>
+      </View>
     );
   }
 }
@@ -24,12 +53,7 @@ class PizzaTranslator extends Component {
   }
   render() {
     return (
-      <View style={{
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'stretch',
-      }}>
+      <View style={styles.container}>
         <Text>{this.state.text.split(' ').map(word => word && '🍕').join('-')}</Text>
 
 
@@ -179,11 +203,19 @@ class BlinkApp extends Component {
   }
 }
 
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+   flex: 1,
+   justifyContent: 'center',
+   backgroundColor: '#fff'
   },
-});
+  buttonContainer: {
+    margin: 20
+  },
+  alternativeLayoutButtonContainer: {
+    margin: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  }
+})
