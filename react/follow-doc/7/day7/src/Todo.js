@@ -61,7 +61,9 @@ class Todo extends Component {
   }
 
   handleDelete = (id) => {
-    let tempFinished = this.state.finished.slice(id, id + 1)
+    let tempFinished = this.state.finished.slice()
+    tempFinished.splice(id, 1)
+    console.log(tempFinished)
     this.setState({
       finished: tempFinished
     })
@@ -77,9 +79,9 @@ class Todo extends Component {
             <TaskHeader />
 
             {this.state.tasks.map((task, id) =>
-            <Task key={id} onClick={() => { this.markComplete(id) }}>
-              {task}
-            </Task>)}
+              <Task key={id} onClick={() => { this.markComplete(id) }}>
+                {task}
+              </Task>)}
 
             <hr/>
             <FinishedHeader/>
